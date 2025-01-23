@@ -6,7 +6,7 @@ function BagSummary() {
 
   const dispatch=useDispatch()
      const bagsum=useSelector(store=>store.bag)
-      console.log(bagsum);
+      // console.log(bagsum);
      
       // Flat the array if it's a nested array
    const bagItems = bagsum.flat();

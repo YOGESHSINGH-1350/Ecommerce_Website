@@ -17,7 +17,7 @@ function App() {
   <Header></Header>
   <FetchStatus></FetchStatus>
   {fetchStatus.fetching? <LoadingSpinner/>:  <Outlet></Outlet>}
-   
+   <Footer></Footer>
 </>
 
   )
