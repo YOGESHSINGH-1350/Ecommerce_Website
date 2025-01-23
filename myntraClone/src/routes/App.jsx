@@ -4,7 +4,7 @@ import Header from '../components/Header'
 import FetchStatus from '../components/FetchStatus'
 import LoadingSpinner from '../components/LoadingSpinner'
 import { useSelector } from 'react-redux'
-import store from '../store'
+
 
 
 
@@ -16,9 +16,8 @@ function App() {
     <>
   <Header></Header>
   <FetchStatus></FetchStatus>
-  {fetchStatus.fetching?<LoadingSpinner/>:  <Outlet></Outlet>}
-  <Footer></Footer>
- 
+  {fetchStatus.fetching? <LoadingSpinner/>:  <Outlet></Outlet>}
+   
 </>
 
   )

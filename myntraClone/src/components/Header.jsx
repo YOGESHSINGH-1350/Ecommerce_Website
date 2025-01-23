@@ -4,7 +4,12 @@ import { IoBagCheckOutline } from "react-icons/io5";
 import { IoIosSearch  } from "react-icons/io";
 import { FaRegHeart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 function Header() {
+
+  const count=useSelector(store=>store.bag)
+  
+  
   return (    
        <header>
     <div className="logo_container">
@@ -47,7 +52,7 @@ function Header() {
       <IoBagCheckOutline />
         <span className="action_name">Bag</span>
 
-        <span className="bag-item-count">0</span>
+        <span className="bag-item-count">{count.length}</span>
       </Link>
     </div>
   </header>

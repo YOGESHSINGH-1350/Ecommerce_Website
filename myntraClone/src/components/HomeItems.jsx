@@ -1,6 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { bagActions } from '../store/bagSlice'
+
 
 function HomeItems({item}) {
+
+  const[inbag, setinbag] =useState(false)
+  const handleBAgToggel=()=>{
+    if(inbag){
+       dispatch(bagActions.deleteItems({id:item.id}))
+    }
+    else{
+      dispatch(bagActions.addProduct(item))
+    }
+    setinbag(!inbag)
+  }
+
+  const dispatch=useDispatch()
   return (
     <>
  <div className="item-container">
@@ -15,7 +31,9 @@ function HomeItems({item}) {
           <span className="original-price">Rs {item.original_price}</span>
           <span className="discount">({item.discount_percentage}% OFF)</span>
       </div>
-      <button className="btn-add-bag" onClick={()=>console.log("Item add to bag")}>Add to Bag</button>
+      <button className="btn-add-bag" onClick={handleBAgToggel}>
+        
+        {inbag?"Remove To Bag":"Add To Bag"}</button>
     </div>
 </>
 
